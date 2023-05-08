@@ -1,18 +1,74 @@
 [
     {
-        "url": "Chess_pdt45.svg",
-        "color": "black",
-        "name": "pawn",
-        "description": "lowest piece",
-        "price": "5",
-        "onSale": "true"
+        "type": "blackPawn",
+        "name": "Pawn",
+        "price": "1",
+        "quantity": 1500
     },
     {
-        "url": "Chess_plt45.svg",
-        "color": "black",
-        "name": "pawn",
-        "description": "lowest piece",
+        "type": "whitePawn",
+        "name": "Pawn",
+        "price": "1",
+        "quantity": 1500
+    },
+    {
+        "type": "whiteRook",
+        "name": "Rook",
         "price": "5",
-        "onSale": "true"
+        "quantity": 1500
+    },
+    {
+        "type": "blackRook",
+        "name": "Rook",
+        "price": "5",
+        "quantity": 1500
+    },
+    {
+        "type": "whiteBishop",
+        "name": "Bishop",
+        "price": "3",
+        "quantity": 1500
+    },
+    {
+        "type": "blackBishop",
+        "name": "Bishop",
+        "price": "3",
+        "quantity": 1500
+    },
+    {
+        "type": "whiteKnight",
+        "name": "knight",
+        "price": "3",
+        "quantity": 1500
+    },
+    {
+        "type": "blackKnight",
+        "name": "knight",
+        "price": "3",
+        "quantity": 1500
+    },
+    {
+        "type": "whiteKing",
+        "name": "king",
+        "price": "10",
+        "quantity": 1500
+    },
+    {
+        "type": "blackKing",
+        "name": "king",
+        "price": "10",
+        "quantity": 1500
+    },
+    {
+        "type": "whiteQueen",
+        "name": "queen",
+        "price": "9",
+        "quantity": 1500
+    },
+    {
+        "type": "blackQueen",
+        "name": "queen",
+        "price": "9",
+        "quantity": 1500
     }
 ]
