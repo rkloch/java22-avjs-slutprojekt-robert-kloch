@@ -63,11 +63,8 @@ export default function App() {
           setConfirmedPurchase={setConfirmedPurchase}
         />
         <div className="content-container">
-          
-            {
-              /* displayCart är bool, använder det för att antingen visa kundvagn eller produktsida */
-            }
-          
+          {/* displayCart är bool, använder det för att antingen visa kundvagn eller produktsida */}
+
           {displayCart ? (
             <Cart
               cart={cart}
@@ -88,11 +85,9 @@ export default function App() {
             </div>
           )}
         </div>
-        
-          {
-            /* Status är bara när sidan hämtar från databasen */
-          }
-        
+
+        {/* Status är bara när sidan hämtar från databasen */}
+
         {(status === "loading" || status === "failed") && (
           <Status status={status} />
         )}
