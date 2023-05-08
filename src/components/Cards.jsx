@@ -1,21 +1,19 @@
-export default function Cards({
-  productArray,
-  cart,
-  changeProductTotal,
-}) {
+export default function Cards({ productArray, cart, changeProductTotal }) {
   let cardFormat;
   let tempInput = 0;
 
   function handleSubmit(event) {
     event.preventDefault();
     if (tempInput == 0) return; //Händer inget om kvantiteten som ska läggas till är 0
-    let nameExists = false;
+    let nameExists = false; //Ifall namnet som producten har redan finns i varukorgen så ändras bara kvantiteten
+    //Loopar bara genom varukorgen för att kolla
     cart.forEach((product) => {
       if (event.target.getAttribute("productname") === product.name) {
         nameExists = true;
         product.quantity = parseInt(tempInput) + parseInt(product.quantity);
       }
     });
+    //Annars så läggs ett nytt objekt till i varukorgen
     if (!nameExists) {
       let obj = {};
       obj.price = event.target.getAttribute("price");
@@ -23,14 +21,14 @@ export default function Cards({
       obj.quantity = tempInput;
       cart.push(obj);
     }
-    changeProductTotal(tempInput);
+    changeProductTotal(tempInput); //Ökar produktantalet
     event.target.reset();
   }
 
   function handleInputChange(event) {
     tempInput = event.target.value;
   }
-
+  //Fixar så att man inte kan köpa mer än det finns i lager, ifall det ligger i varukorgen redan så räknas det som bokat
   function getMaxProductAvailability(product, cart) {
     let availableQuantity = parseInt(product.quantity);
     cart.forEach((cartProduct) => {
@@ -39,6 +37,8 @@ export default function Cards({
     });
     return availableQuantity;
   }
+
+  //Format för card med form input
   if (Array.isArray(productArray)) {
     cardFormat = productArray.map((product) => (
       <article className="card" key={product.type}>
@@ -70,7 +70,7 @@ export default function Cards({
 
   return <>{cardFormat}</>;
 }
-
+//Extremt lat sätt för att få parcel att spara bildfilerna i docsmappen, brute force och pantat men funkar
 function imageObj(product) {
   let imgUrl;
   switch (product.type) {

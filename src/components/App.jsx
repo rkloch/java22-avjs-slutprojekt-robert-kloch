@@ -12,18 +12,19 @@ export default function App() {
   const [cart, setCart] = useState([]);
   const [productTotal, setProductTotal] = useState(0);
   const [confirmedPurchase, setConfirmedPurchase] = useState(false);
-
+  /* Bool som byter till och från varukorgssidan */
   function changeCartDisplay(boolDisplayCart) {
     setDisplayCart(boolDisplayCart);
   }
-
+  /* ändrar produkttotal i korg */
   function changeProductTotal(intProductsToAdd) {
     setProductTotal(productTotal + parseInt(intProductsToAdd));
   }
-
+  /* Sätter produktantalet i korgen till noll */
   function initProductTotal() {
     setProductTotal(0);
   }
+  /* Hämtar produkter från databas */
   async function getProducts() {
     setStatus("loading");
     const res = await fetch(
@@ -46,9 +47,11 @@ export default function App() {
       setStatus("failed");
     }
   }
+  /* Hämtar produkter från databas */
   useEffect(() => {
     getProducts(products);
   }, []);
+
   return (
     <>
       <h1>ChessShop</h1>
@@ -60,6 +63,11 @@ export default function App() {
           setConfirmedPurchase={setConfirmedPurchase}
         />
         <div className="content-container">
+          
+            {
+              /* displayCart är bool, använder det för att antingen visa kundvagn eller produktsida */
+            }
+          
           {displayCart ? (
             <Cart
               cart={cart}
@@ -80,6 +88,11 @@ export default function App() {
             </div>
           )}
         </div>
+        
+          {
+            /* Status är bara när sidan hämtar från databasen */
+          }
+        
         {(status === "loading" || status === "failed") && (
           <Status status={status} />
         )}

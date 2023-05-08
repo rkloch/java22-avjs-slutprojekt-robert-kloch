@@ -8,13 +8,14 @@ export default function Cart({
   confirmedPurchase,
 }) {
   let totalPrice = 0;
+  //Återställer allt när varukorgen tömms
   function handleEmptyCartAction() {
     setCart([]);
     initProductTotal();
     setConfirmedPurchase(false);
     changeCartDisplay(false);
   }
-
+  //genomför köp, skickar ny produktlager till firebase, och återställer allt
   function handlePurchase() {
     if (!cart.length) return;
     productArray.forEach((dbProduct) => {

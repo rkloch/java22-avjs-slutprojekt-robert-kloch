@@ -1,3 +1,5 @@
+//Enkel sidomeny
+
 export default function Sidebar({
   changeCartDisplay,
   productTotal,

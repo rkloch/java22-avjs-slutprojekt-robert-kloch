@@ -1,3 +1,4 @@
+//Lånad av cleivas i sin helhet, bara displayar loading till datan är hämtad från firebase.
 export default function Status({ status }) {
   return (
     <div className={status}>
